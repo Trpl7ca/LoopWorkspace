@@ -265,9 +265,6 @@ jobs:
           # the final customization listed above CANNOT have a continuation character "\"
           # more customizations can be pasted after this line
          
-          # Loop: File: Glucose Application Factor change .2-2.00
-          curl https://github.com/Trpl7ca/Loop/commit/3f7fc4aa2c184ff3229bca5a5c014aa82ba09cd0 | git apply -v --directory=Loop
-
           # Loop: File: Eliminate Default Shaking
           curl https://github.com/Trpl7ca/Loop/commit/889ed44399c4726028a470bdac583b1f15fcd851.patch | git apply -v --directory=Loop
 

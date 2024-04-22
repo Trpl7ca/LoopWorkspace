@@ -273,9 +273,6 @@ jobs:
 
           # Loop: File: PAF Values Changed .5
           curl https://github.com/Trpl7ca/Loop/commit/88296a8827975183ec568fb87ca7507c148cc26c.patch | git apply -v --directory=Loop
-
-          # Loop: File: Glucose Application Factor change .5-2.00
-          curl https://github.com/Trpl7ca/Loop/commit/d9018aeb790b92f70dd63f52b9491a514404af57.patch | git apply -v --directory=Loop
      
       # Patch Fastlane Match to not print tables
       - name: Patch Match Tables

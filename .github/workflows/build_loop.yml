@@ -273,7 +273,10 @@ jobs:
 
           #Loop: File: Watch Carb Entry =25
           curl https://github.com/Trpl7ca/Loop/commit/22acbf697e436ca00a910de6aa02fdba2eae91f3.patch | git apply -v --directory=Loop
-     
+
+          # Loop: File: Glucose Application Factor change .5-1.80
+          curl https://github.com/Trpl7ca/Loop/commit/192e7c626da995ab63a75252d1bdb9a27b7a2436.patch | git apply -v --directory=Loop
+          
       # Patch Fastlane Match to not print tables
       - name: Patch Match Tables
         run: find /usr/local/lib/ruby/gems -name table_printer.rb | xargs sed -i "" "/puts(Terminal::Table.new(params))/d"

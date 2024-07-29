@@ -256,7 +256,6 @@ jobs:
           2hlollipop \
           meal_week \
           2002 \
-          basal_lock \
           live_activity
 
           # the final customization listed above CANNOT have a continuation character
@@ -273,6 +272,9 @@ jobs:
 
           # Module Loop: Bolus Entry Screen
           curl https://github.com/Trpl7ca/Loop/commit/90ad7af6204db200393ffb6e0666080ce1bce0dc.patch | git apply -v --directory=Loop
+
+          #Loopkit: Basal Lock guardrail
+          curl https://github.com/Trpl7ca/LoopKit/commit/8d6d2f22cf4f9912f17cd812ba348634d8163963.patch | git apply -v --directory=LoopKit
 
        # Patch Fastlane Match to not print tables
       - name: Patch Match Tables

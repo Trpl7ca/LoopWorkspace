@@ -296,9 +296,6 @@ jobs:
           # the final customization listed above CANNOT have a continuation character
           # more customizations can be pasted after this line
           
-          # the final customization listed above CANNOT have a continuation character
-          # more customizations can be pasted after this line
-         
           # OmniBLE: File: Extra Insulin 
           curl https://github.com/Trpl7ca/OmniBLE/commit/beb295e3bbbb6b96e8cb078c38ffa74baaeb5653.patch | git apply -v --directory=OmniBLE
           

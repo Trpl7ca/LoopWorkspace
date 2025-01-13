@@ -289,6 +289,8 @@ jobs:
           now_line \
           watch_title \
           2hlollipop \
+          negative_insulin
+          bolus_display
           2002 \
 
           # the final customization listed above CANNOT have a continuation character

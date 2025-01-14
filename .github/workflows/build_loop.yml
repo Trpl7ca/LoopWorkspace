@@ -279,6 +279,8 @@ jobs:
 
           # The lines below add the customizations listed using the CustomizationSelect script
           # The "\" is a continuation character 
+          export PATCH_BRANCH="nid_and_bolus_display"
+          export SCRIPT_BRANCH="nid_and_bolus_display"
           #   the line following a "\" should not be blank
           /bin/bash -c "$(curl -fsSL \
           https://raw.githubusercontent.com/loopandlearn/lnl-scripts/main/CustomizationSelect.sh)" \
@@ -291,6 +293,7 @@ jobs:
           2hlollipop \
           negative_insulin
           bolus_display
+          live_activity
           2002 \
 
           # the final customization listed above CANNOT have a continuation character

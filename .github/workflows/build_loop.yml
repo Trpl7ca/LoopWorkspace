@@ -314,9 +314,9 @@ jobs:
           # Module Loop: Chart Clamp 45-270
           curl https://github.com/Trpl7ca/Loop/commit/24b085909f4830e3d629d62979fc3cfea5ae8576.patch | git apply -v --directory=Loop
 
-          # Module LoopWorkspace: G7 Sensor fix
-          curl https://github.com/loopdocs-tester/LoopWorkspace/commit/890daefadf3127229356e62b49a5807e53d0878d.patch | git apply -v --directory=LoopWorkspace
-     
+          # See if this improves the scanning for G7
+          curl https://github.com/motinis/G7SensorKit/commit/ba44beb3d1491c453f4f438443c3f8ba29146ab3.patch | git apply --directory=G7SensorKit -v --whitespace=fix
+
       # Patch Fastlane Match to not print tables
       - name: Patch Match Tables
         run: |

@@ -289,7 +289,7 @@ jobs:
           watch_title \
           2hlollipop \
           meal_days \
-           profiles \
+          profiles \
           live_activity \
           negative_insulin \
           bolus_display \

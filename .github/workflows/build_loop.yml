@@ -277,7 +277,7 @@ jobs:
 
           # Submodule xxxxx patches:
 
-          # # # The lines below add the customizations listed using the CustomizationSelect script
+          # The lines below add the customizations listed using the CustomizationSelect script
           # The "\" is a continuation character 
           #   the line following a "\" should not be blank
           /bin/bash -c "$(curl -fsSL \
@@ -290,6 +290,7 @@ jobs:
           2hlollipop \
           meal_days \
           profiles \
+          basal_lock \
           live_activity \
           negative_insulin \
           bolus_display \

@@ -299,7 +299,6 @@ jobs:
            profiles \
           live_activity \
           negative_insulin \
-          bolus_display \
           g7_scan
 
           # the final customization listed above CANNOT have a continuation character

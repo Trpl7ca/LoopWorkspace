@@ -302,17 +302,14 @@ jobs:
           # OmniBLE: File: Extra Insulin 
           curl https://github.com/Trpl7ca/OmniBLE/commit/beb295e3bbbb6b96e8cb078c38ffa74baaeb5653.patch | git apply -v --directory=OmniBLE
           
-          # Loop: File: PAF Values Changed .5 Watch Entry 25
-          curl https://github.com/Trpl7ca/Loop/commit/767373868ec3827717ad4558b35832ba263bfb71.patch | git apply -v --directory=Loop
-          
+          # Module Loop: Chart Clamp 45-270
+          curl https://github.com/Trpl7ca/Loop/commit/fb472e67b23c6685c9444cbd431c6ddc2a5974e3.patch | git apply -v --directory=Loop
+         
           #Loop: File: Watch Carb Entry =25
           curl https://github.com/Trpl7ca/Loop/commit/22acbf697e436ca00a910de6aa02fdba2eae91f3.patch | git apply -v --directory=Loop
          
           # Module Loop: Bolus Entry Screen
           curl https://github.com/Trpl7ca/Loop/commit/90ad7af6204db200393ffb6e0666080ce1bce0dc.patch | git apply -v --directory=Loop
-
-          # Module Loop: Chart Clamp 45-270
-          curl https://github.com/Trpl7ca/Loop/commit/24b085909f4830e3d629d62979fc3cfea5ae8576.patch | git apply -v --directory=Loop
 
       # Patch Fastlane Match to not print tables
       - name: Patch Match Tables

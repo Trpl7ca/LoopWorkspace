@@ -311,7 +311,7 @@ jobs:
           curl https://github.com/Trpl7ca/Loop/commit/90ad7af6204db200393ffb6e0666080ce1bce0dc.patch | git apply -v --directory=Loop
 
           # Module Loop: Chart Clamp 45-270
-          curl https://github.com/Trpl7ca/Loop/commit/946ae20a2e458e7c7f5bbfa42e8f93dde0d31008.patch | git apply -v --directory=Loop
+          curl https://github.com/Trpl7ca/Loop/commit/fb472e67b23c6685c9444cbd431c6ddc2a5974e3.patch | git apply -v --directory=Loop
 
       # Patch Fastlane Match to not print tables
       - name: Patch Match Tables

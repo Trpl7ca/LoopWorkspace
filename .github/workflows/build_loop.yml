@@ -310,9 +310,6 @@ jobs:
            
           # Module Loop: Bolus Entry Screen
           curl https://github.com/Trpl7ca/Loop/commit/90ad7af6204db200393ffb6e0666080ce1bce0dc.patch | git apply -v --directory=Loop
-
-          # Module Loop: GBAF .5-1.5
-          curl https://github.com/Trpl7ca/Loop/commit/d49d12eb85907cbe5c283e18ea14a66d49856673.patch | git apply -v --directory=Loop
         
       # Patch Fastlane Match to not print tables
       - name: Patch Match Tables

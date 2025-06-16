@@ -7,10 +7,10 @@ Subject: [PATCH] Update GlucoseBasedApplicationFactorStrategy.swift
  Loop/Models/GlucoseBasedApplicationFactorStrategy.swift | 6 +++---
  1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/Loop/Models/GlucoseBasedApplicationFactorStrategy.swift b/Loop/Models/GlucoseBasedApplicationFactorStrategy.swift
+diff --git a/Loop/Loop/Models/GlucoseBasedApplicationFactorStrategy.swift b/Loop/Loop/Models/GlucoseBasedApplicationFactorStrategy.swift
 index 3be01d553..7c56376cd 100644
---- a/Loop/Models/GlucoseBasedApplicationFactorStrategy.swift
-+++ b/Loop/Models/GlucoseBasedApplicationFactorStrategy.swift
+--- a/Loop/Loop/Models/GlucoseBasedApplicationFactorStrategy.swift
++++ b/Loop/Loop/Models/GlucoseBasedApplicationFactorStrategy.swift
 @@ -13,11 +13,11 @@ import LoopCore
  
  struct GlucoseBasedApplicationFactorStrategy: ApplicationFactorStrategy {

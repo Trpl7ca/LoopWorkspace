@@ -304,9 +304,6 @@ jobs:
           # Module Loop: Chart Clamp 45-270
           curl https://github.com/Trpl7ca/Loop/commit/fb472e67b23c6685c9444cbd431c6ddc2a5974e3.patch | git apply -v --directory=Loop
          
-          # Module Loop: GBAF
-          curl https://github.com/Trpl7ca/Loop/commit/20362b6aefa3aeeae34fb869ad017bd7c87e2425.patch | git apply -v --directory=Loop
-          
           #Loop: File: Watch Carb Entry =25
           curl https://github.com/Trpl7ca/Loop/commit/22acbf697e436ca00a910de6aa02fdba2eae91f3.patch | git apply -v --directory=Loop
            

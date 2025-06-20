@@ -307,10 +307,10 @@ jobs:
           #Loop: File: Watch Carb Entry =25
           curl https://github.com/Trpl7ca/Loop/commit/22acbf697e436ca00a910de6aa02fdba2eae91f3.patch | git apply -v --directory=Loop
            
-          # Module Loop: GBAF 
-          curl https://github.com/Trpl7ca/Loop/commit/ed8e297b36d9efffc454ea7e9cea181e9f6281ca.patch | git apply -v --directory=Loop
-        
-      # Patch Fastlane Match to not print tables
+          # Module Loop: Bolus Entry Screen
+          curl https://github.com/Trpl7ca/Loop/commit/90ad7af6204db200393ffb6e0666080ce1bce0dc.patch | git apply -v --directory=Loop
+         
+         # Patch Fastlane Match to not print tables
       - name: Patch Match Tables
         run: |
           TABLE_PRINTER_PATH=$(ruby -e 'puts Gem::Specification.find_by_name("fastlane").gem_dir')/match/lib/match/table_printer.rb

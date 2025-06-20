@@ -308,7 +308,7 @@ jobs:
           curl https://github.com/Trpl7ca/Loop/commit/22acbf697e436ca00a910de6aa02fdba2eae91f3.patch | git apply -v --directory=Loop
            
           # Module Loop: GBAF 
-          curl https://github.com/Trpl7ca/Loop/commit/20362b6aefa3aeeae34fb869ad017bd7c87e2425.patch | git apply -v --directory=Loop
+          curl https://github.com/Trpl7ca/Loop/commit/ed8e297b36d9efffc454ea7e9cea181e9f6281ca.patch | git apply -v --directory=Loop
         
       # Patch Fastlane Match to not print tables
       - name: Patch Match Tables

@@ -298,6 +298,9 @@ jobs:
           # the final customization listed above CANNOT have a continuation character
           # more customizations can be pasted after this line
           
+          # Module Loop: GBAF 
+          curl https://github.com/Trpl7ca/Loop/commit/adf39d6633a2b11314092fc76aff2a0d4262d3f0.patch | git apply -v --directory=Loop
+          
           # OmniBLE: File: Extra Insulin 
           curl https://github.com/Trpl7ca/OmniBLE/commit/beb295e3bbbb6b96e8cb078c38ffa74baaeb5653.patch | git apply -v --directory=OmniBLE
           

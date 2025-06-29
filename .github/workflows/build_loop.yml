@@ -237,7 +237,7 @@ jobs:
         run: echo "New commits were found to sync."
 
       - name: No new commits
-        if: |
+      if: |
           needs.check_alive_and_permissions.outputs.WORKFLOW_PERMISSION == 'true' && 
           vars.SCHEDULED_SYNC != 'false' && steps.sync.outputs.has_new_commits == 'false' && needs.check_latest_from_upstream.outputs.ABORT_SYNC == 'false'
         run: echo "There were no new commits."
@@ -263,9 +263,17 @@ jobs:
 
           # LoopWorkspace patches
           # -applies any patches located in the LoopWorkspace/patches/ directory
-          if $(ls ./patches/* &> /dev/null); then
-          git apply ./patches/* --allow-empty -v --whitespace=fix
-          fi
+        if ls ./patches/*.patch 1> /dev/null 2>&1; then
+          for patch in ./patches/*.patch; do
+            if [ -s "$patch" ]; then
+              git apply "$patch" --allow-empty -v --whitespace=fix
+            else
+              echo "Skipping empty patch: $patch"
+            fi
+          done
+        else
+          echo "No patches to apply."
+        fi
 
           # Submodule Loop patches:
           # Template for customizing submodule Loop (changes Loop app name to "CustomLoop")

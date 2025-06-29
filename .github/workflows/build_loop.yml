@@ -310,7 +310,7 @@ jobs:
           # Module Loop: Bolus Entry Screen
           curl https://github.com/Trpl7ca/Loop/commit/90ad7af6204db200393ffb6e0666080ce1bce0dc.patch | git apply -v --directory=Loop
          
-        # Patch Fastlane Match to not print tables
+      # Patch Fastlane Match to not print tables
       - name: Patch Match Tables
         run: |
           TABLE_PRINTER_PATH=$(ruby -e 'puts Gem::Specification.find_by_name("fastlane").gem_dir')/match/lib/match/table_printer.rb

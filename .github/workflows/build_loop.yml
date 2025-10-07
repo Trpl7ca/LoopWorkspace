@@ -264,8 +264,8 @@ jobs:
 
           # LoopWorkspace patches
           # -applies any patches located in the LoopWorkspace/patches/ directory
-          if ls ./patches/*.patch &> /dev/null; then
-          git apply ./patches/*.patch --allow-empty -v --whitespace=fix
+          if $(ls ./patches/* &> /dev/null); then
+          git apply ./patches/* --allow-empty -v --whitespace=fix
           fi
 
           # Submodule Loop patches:
@@ -305,13 +305,13 @@ jobs:
           
           # Module Loop: Chart Clamp 45-270
           curl https://github.com/Trpl7ca/Loop/commit/fb472e67b23c6685c9444cbd431c6ddc2a5974e3.patch | git apply -v --directory=Loop
-         
+
           #Loop: File: Watch Carb Entry =25
           curl https://github.com/Trpl7ca/Loop/commit/22acbf697e436ca00a910de6aa02fdba2eae91f3.patch | git apply -v --directory=Loop
-
+         
           # Module Loop: Bolus Entry Screen
           curl https://github.com/Trpl7ca/Loop/commit/90ad7af6204db200393ffb6e0666080ce1bce0dc.patch | git apply -v --directory=Loop
-         
+     
       # Patch Fastlane Match to not print tables
       - name: Patch Match Tables
         run: |
@@ -362,4 +362,3 @@ jobs:
           path: |
             artifacts
             buildlog
-

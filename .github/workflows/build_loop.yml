@@ -214,6 +214,7 @@ jobs:
           2hlollipop \
           meal_days \
           basal_lock \
+          profiles \
           negative_insulin
                     
           # the final customization listed above CANNOT have a continuation character

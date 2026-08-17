@@ -248,6 +248,7 @@ jobs:
           meal_days \
           basal_lock \
           profiles \
+          no_auth \
           negative_insulin
           
       # Patch Fastlane Match to not print tables

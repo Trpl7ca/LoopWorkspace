@@ -253,7 +253,7 @@ jobs:
           # more customizations can be pasted after this line
      
           # Module: OmmipodKit: Increase insulin at insert by 1.00 U
-          curl https://github.com/Trpl7ca/OmnipodKit/commit/5e9f4f407ff5544663f496d2e3a5ed8aa4f32a68.patch | git apply -v --directory=OminpodKit
+          curl https://github.com/Trpl7ca/OmnipodKit/commit/3de970bc55ed24cf3e7163abb60d829e11c5ab44.patch | git apply -v --directory=OminpodKit
           
       # Patch Fastlane Match to not print tables
       - name: Patch Match Tables

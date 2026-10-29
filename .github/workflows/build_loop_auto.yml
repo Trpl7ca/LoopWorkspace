@@ -60,7 +60,7 @@ jobs:
               if [ $unknown_format ]; then
                 echo "::error::Unable to connect to GitHub using the GH_PAT secret. Verify that it is set correctly (including the 'ghp_' or 'github_pat_' prefix) and try again."
               else
-                echo "::error::Unable to connect to GitHub using the GH_PAT secret. Verify that the token exists and has not expired at https://github.com/settings/tokens. If necessary, regenerate or create a new token (and update the secret), then try again."
+                echo "::error::Unable to connect to GitHub using the GH_PAT secret. Verify that the token exists and has not expired at https://github.com/settings/tokens. If necessary, regenerate[...]
               fi
             elif [[ $scopes =~ workflow ]]; then
               echo "The GH_PAT secret has repo and workflow permissions."
@@ -74,9 +74,9 @@ jobs:
               else
                 echo "The GH_PAT secret is valid and can be used to connect to GitHub, but it only provides the following permission scopes: $scopes"
               fi
-              echo "::error::The GH_PAT secret is lacking at least the 'repo' permission scope required to access the Match-Secrets repository. Update the token permissions at https://github.com/settings/tokens (to include the 'repo' and 'workflow' scopes) and try again."
+              echo "::error::The GH_PAT secret is lacking at least the 'repo' permission scope required to access the Match-Secrets repository. Update the token permissions at https://github.com/settings/tokens and try again."
             else
-              echo "The GH_PAT secret is valid and can be used to connect to GitHub, but it does not provide inspectable scopes. Assuming that the 'repo' and 'workflow' permission scopes required to access the Match-Secrets repository and perform automations are present."
+              echo "The GH_PAT secret is valid and can be used to connect to GitHub, but it does not provide inspectable scopes. Assuming that the 'repo' and 'workflow' permission scopes required to access the repo are available."
               echo "has_permission=true" >> $GITHUB_OUTPUT
             fi
           fi
@@ -208,6 +208,7 @@ jobs:
           submodules: recursive
           ref: ${{ env.TARGET_BRANCH }}
 
+      # Customize Loop: Download and apply patches
       - name: Customize Loop
         shell: bash
         run: |
@@ -239,14 +240,25 @@ jobs:
           fi
 
           # Submodule Loop patches:
-          # Template:
-          # curl https://github.com/loopnlearn/Loop/commit/...patch | git apply --directory=Loop -v --whitespace=fix
+          # Template for customizing submodule Loop (changes Loop app name to "CustomLoop")
+          # Remove the "#" sign from the beginning of the line below to activate:
+          #curl https://github.com/loopnlearn/Loop/commit/d206432b024279ef710df462b20bd464cd9682d4.patch | git apply --directory=Loop -v --whitespace=fix
 
           # Submodule LoopKit patches:
-          # Template:
-          # curl url_to_github_commit.patch | git apply --directory=LoopKit -v --whitespace=fix
+          # General template for customizing submodule LoopKit 
+          # Copy url from a GitHub commit or pull request and insert below, and remove the "#" sign from the beginning of the line to activate:
+          #curl url_to_github_commit.patch | git apply --directory=LoopKit -v --whitespace=fix
 
-          # CustomizationSelect script
+          # Submodule xxxxx patches:
+
+          # Add patches for customization of additional submodules by following the templates above, 
+          # and make sure to specify the submodule by setting "--directory=(submodule_name)".
+          # Several patches may be added per submodule.
+          # Adding comments (#) may be useful to easily tell the individual patches apart.
+          
+          # The lines below add the customizations listed using the CustomizationSelect script
+          # The "\" is a continuation character 
+          #   the line following a "\" should not be blank
           /bin/bash -c "$(curl -fsSL \
           https://raw.githubusercontent.com/loopandlearn/lnl-scripts/main/CustomizationSelect.sh)" \
           future_carbs_4h \

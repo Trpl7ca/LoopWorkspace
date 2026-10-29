@@ -7,10 +7,10 @@ Subject: [PATCH] Update cannulaInsertionUnitsExtra to 1.0
  OmnipodKit/OmnipodCommon/Pod.swift | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/OmnipodKit/OmnipodKit/OminpodCommon/Pod.swift b/OmnipodKit/OmnipodKit/OminpodCommon/Pod.swift
+diff --git a/OmnipodKit/OmnipodCommon/Pod.swift b/OmnipodKit/OmnipodCommon/Pod.swift
 index d50f3251..06eb0e96 100644
---- a/OmnipodKit/OmnipodKit/OminpodCommon/Pod.swift
-+++ b/OmnipodKit/OmnipodKit/OminpodCommon/Pod.swift
+--- a/OmnipodKit/OmnipodCommon/Pod.swift
++++ b/OmnipodKit/OmnipodCommon/Pod.swift
 @@ -77,7 +77,7 @@ struct Pod {
      // Checked to verify it agrees with value returned by pod during the pairing process.
      static let cannulaInsertionUnits = 0.5

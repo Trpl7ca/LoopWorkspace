@@ -60,7 +60,7 @@ jobs:
               if [ $unknown_format ]; then
                 echo "::error::Unable to connect to GitHub using the GH_PAT secret. Verify that it is set correctly (including the 'ghp_' or 'github_pat_' prefix) and try again."
               else
-                echo "::error::Unable to connect to GitHub using the GH_PAT secret. Verify that the token exists and has not expired at https://github.com/settings/tokens. If necessary, regenerate or create a new token (and update the secret), then try again."
+                echo "::error::Unable to connect to GitHub using the GH_PAT secret. Verify that the token exists and has not expired at https://github.com/settings/tokens. If necessary, regenerate[...]
               fi
             elif [[ $scopes =~ workflow ]]; then
               echo "The GH_PAT secret has repo and workflow permissions."
@@ -74,9 +74,9 @@ jobs:
               else
                 echo "The GH_PAT secret is valid and can be used to connect to GitHub, but it only provides the following permission scopes: $scopes"
               fi
-              echo "::error::The GH_PAT secret is lacking at least the 'repo' permission scope required to access the Match-Secrets repository. Update the token permissions at https://github.com/settings/tokens (to include the 'repo' and 'workflow' scopes) and try again."
+              echo "::error::The GH_PAT secret is lacking at least the 'repo' permission scope required to access the Match-Secrets repository. Update the token permissions at https://github.com/settings/tokens and try again."
             else
-              echo "The GH_PAT secret is valid and can be used to connect to GitHub, but it does not provide inspectable scopes. Assuming that the 'repo' and 'workflow' permission scopes required to access the Match-Secrets repository and perform automations are present."
+              echo "The GH_PAT secret is valid and can be used to connect to GitHub, but it does not provide inspectable scopes. Assuming that the 'repo' and 'workflow' permission scopes required to access the repo are available."
               echo "has_permission=true" >> $GITHUB_OUTPUT
             fi
           fi
@@ -210,12 +210,33 @@ jobs:
 
       # Customize Loop: Download and apply patches
       - name: Customize Loop
+        shell: bash
         run: |
+          set -euo pipefail
 
-          # LoopWorkspace patches
-          # -applies any patches located in the LoopWorkspace/patches/ directory
-          if $(ls ./patches/* &> /dev/null); then
-          git apply ./patches/* --allow-empty -v --whitespace=fix
+          echo "Initializing submodules before applying custom patches..."
+          git submodule sync --recursive || true
+          git submodule update --init --recursive || true
+
+          # Apply repo-level patches only if they exist
+          if [ -d ./patches ] && find ./patches -maxdepth 1 -type f -print -quit | grep -q .; then
+            for patch in ./patches/*; do
+              [ -f "$patch" ] || continue
+              echo "Applying patch: $patch"
+              git apply --allow-empty -v --whitespace=fix "$patch" || {
+                echo "::error::Failed to apply patch: $patch"
+                exit 1
+              }
+            done
+          else
+            echo "No patch files found in ./patches; skipping repo patching."
+          fi
+
+          # Guard against OmnipodKit missing in the current checkout
+          if [ -f ./OmnipodKit/OmnipodCommon/Pod.swift ]; then
+            echo "OmnipodKit checkout is present; continuing with customizations."
+          else
+            echo "::warning::./OmnipodKit/OmnipodCommon/Pod.swift is not present. Skipping Omnipod-specific patching."
           fi
 
           # Submodule Loop patches:
